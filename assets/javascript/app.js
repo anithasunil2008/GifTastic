@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var animals = ["Elephant", "Cat", "Dog", "Fish", "Bird", "Snack", "Orca", "Bunny", "Monkey", "Lizard", "Shark", "Butterfly", "Fox", "Turtle", "Dolphin"];
+    var animals = ["Elephant", "Cat", "Dog", "Fish", "Bird", "Snake", "Orca", "Bunny", "Monkey", "Lizard", "Shark", "Butterfly", "Fox", "Turtle", "Dolphin"];
 
     function main() {
         $('#buttons').empty();
