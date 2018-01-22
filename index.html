@@ -5,15 +5,14 @@
     <title>
         Giffy
     </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-        <link rel="shortcut icon" type="image/png" href="assets/images/favicon.gif" />
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.gif" />
 
-    </head>
 </head>
 
 <body background="assets/images/bc.gif">
@@ -39,77 +38,7 @@
     <br>
     <div id="gif-holder"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        var animals = ["Elephant", "Cat", "Dog", "Fish", "Bird", "Snack", "Orca", "Bunny", "Monkey", "Lizard", "Shark", "Butterfly", "Fox", "Turtle", "Dolphin"];
-
-        function main() {
-            $('#buttons').empty();
-
-            for (var i = 0; i < animals.length; i++) {
-
-                var autoButton = $("<button>");
-                autoButton.addClass("animal");
-                autoButton.attr('name', animals[i]);
-                autoButton.text(animals[i]);
-                $('#buttons').append(autoButton);
-            }
-            callback();
-        }
-
-        $('#submitButton').on("click", function() {
-            event.preventDefault();
-            var userSearch = $('#searchAnimal').val();
-            animals.push(userSearch);
-            main();
-        });
-
-        main();
-
-        function callback() {
-            $('.animal').on('click', function() {
-                $('#gif-holder').empty();
-                var searchString = $(this).attr('name');
-                console.log(searchString);
-                var dataUrl = "https://api.giphy.com/v1/gifs/search?api_key=DkfjcCcW0Nde1A56akTTqoOsqFfjAfaV&q=" + searchString + "&limit=10&offset=0&rating=G&lang=en";
-                $.ajax({
-                    url: dataUrl,
-                    method: 'GET',
-                    dataType: 'json'
-                }).then(function(response) {
-
-                    console.log(response);
-
-                    var result = response.data;
-
-                    result.forEach(element => {
-                        var gifDiv = $('<div class="gif_div">');
-                        var p = $('<p>');
-                        var img = $('<img class="gifImage">');
-                        console.log(element.rating);
-                        p.text("Rating: " + element.rating);
-                        img.attr('src', element.images.fixed_height_still.url);
-                        img.attr('data-state', "still");
-                        img.attr('data-still', element.images.fixed_height_still.url);
-                        img.attr('data-animated', element.images.fixed_height.url);
-                        gifDiv.append(p);
-                        gifDiv.append(img);
-                        $('#gif-holder').append(gifDiv);
-                    });
-                    $('.gifImage').on('click', function() {
-                        var state = $(this).attr('data-state');
-                        console.log(state);
-                        if (state === "still") {
-                            $(this).attr('data-state', "animated");
-                            $(this).attr('src', $(this).attr("data-animated"));
-                        } else if (state === "animated") {
-                            $(this).attr('data-state', "still");
-                            $(this).attr('src', $(this).attr("data-still"));
-                        }
-                    });
-                });
-            });
-        }
+    <script type="text/javascript" src="assets/javascript/app.js">
     </script>
 
 </body>
