@@ -1,0 +1,100 @@
+header {
+    font-family: cursive;
+    background-color: teal;
+    border-radius: 5px;
+    color: black;
+    height: 80px;
+    padding-left: 500px;
+    padding-right: 500px;
+    padding-top: 5px;
+    text-align: center;
+    animation-name: bounceInRight;
+    animation-duration: 4s;
+}
+
+@keyframes bounceInRight {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    from {
+        opacity: 0;
+        transform: translate3d(3000px, 0, 0);
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(-25px, 0, 0);
+    }
+    75% {
+        transform: translate3d(10px, 0, 0);
+    }
+    90% {
+        transform: translate3d(-5px, 0, 0);
+    }
+    to {
+        transform: none;
+    }
+}
+
+label {
+    color: greenyellow;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+#submitButton {
+    background-color: darkcyan;
+    border-radius: 20px;
+    margin-left: 20px;
+    width: 90px;
+    cursor: pointer;
+}
+
+.animal {
+    background-color: tomato;
+    cursor: pointer;
+    width: 80px;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+#searchAnimal {
+    margin-left: 20px;
+}
+
+p {
+    color: gold;
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.gifImage {
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#title {
+    padding-top: 10px;
+    font-size: 40px;
+}
+
+#headerImage {
+    margin-right: 10px;
+    border-radius: 60px;
+}
+
+
+/* .gif_div {
+    display: inline;
+    width: 100px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    float: left;
+} */
