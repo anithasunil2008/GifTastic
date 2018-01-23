@@ -45,12 +45,17 @@ label {
     font-size: 20px;
 }
 
-#submitButton {
+#submitButton,
+#restartButton {
     background-color: darkcyan;
     border-radius: 20px;
-    margin-left: 20px;
+    margin-left: 600px;
     width: 90px;
     cursor: pointer;
+}
+
+#restartButton {
+    margin-left: 20px;
 }
 
 .animal {
@@ -87,14 +92,7 @@ p {
     border-radius: 60px;
 }
 
-
-/* .gif_div {
-    display: inline;
-    width: 100px;
-    height: 50px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    float: left;
-} */
+.container {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}

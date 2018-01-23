@@ -20,13 +20,12 @@ $(document).ready(function() {
         var userSearch = $('#searchAnimal').val();
         animals.push(userSearch);
         main();
+        $('#searchAnimal').val("");
     });
-
-    main();
 
     function callback() {
         $('.animal').on('click', function() {
-            $('#gif-holder').empty();
+            $('.row').empty();
             var searchString = $(this).attr('name');
             console.log(searchString);
             var dataUrl = "https://api.giphy.com/v1/gifs/search?api_key=DkfjcCcW0Nde1A56akTTqoOsqFfjAfaV&q=" + searchString + "&limit=10&offset=0&rating=G&lang=en";
@@ -52,7 +51,7 @@ $(document).ready(function() {
                     img.attr('data-animated', element.images.fixed_height.url);
                     gifDiv.append(p);
                     gifDiv.append(img);
-                    $('#gif-holder').append(gifDiv);
+                    $('.row').append(gifDiv);
                 });
                 $('.gifImage').on('click', function() {
                     var state = $(this).attr('data-state');
@@ -68,4 +67,5 @@ $(document).ready(function() {
             });
         });
     }
+    main();
 });
